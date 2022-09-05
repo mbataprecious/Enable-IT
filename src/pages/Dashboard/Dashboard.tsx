@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import StatBoard from "../../components/StatBoard/StatBoard";
 import UserListTable from "../../components/UserListTable/UserListTable";
@@ -11,25 +10,15 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   const [pageNo, setPageNo] = useState(0);
   const [userList, setUserList] = useState<User[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // axios
-    //   .get(
-    //     `https://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
-    //   )
-    //   .then((res) => {
-    //     setUserList(res.data.users.slice(0, 10));
-    //   })
-    //   .catch((err) => {
-    //     if (err.response) {
-    //       //toast.error(err.message);
-    //     }
-    //   });
-
+    setLoading(true);
     fetch(
       `https://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
     )
       .then((response) => {
+        setLoading(false);
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
         } else {
@@ -40,6 +29,7 @@ const Dashboard = () => {
         setUserList(jsonResponse.users.slice(0, 10));
       })
       .catch((error) => {
+        setLoading(false);
         // Handle the error
         console.log(error);
       });
@@ -59,7 +49,7 @@ const Dashboard = () => {
       <h4 className="subtitle">Overview</h4>
       <StatBoard />
       <h4 className="subtitle">User logs</h4>
-      <UserListTable userList={userList} />
+      <UserListTable userList={userList} loading={loading} />
 
       <div className="paginate-container">
         <div>

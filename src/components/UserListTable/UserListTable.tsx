@@ -7,11 +7,17 @@ import { User } from "../../utils";
 
 type Props = {
   userList: User[];
+  loading: boolean;
 };
 
-const UserListTable: FC<Props> = ({ userList }) => {
+const UserListTable: FC<Props> = ({ userList, loading }) => {
   return (
     <div className="user-list-table-container">
+      {loading && (
+        <div className="loading">
+          <h3>Loading</h3>
+        </div>
+      )}
       <table className="table-responsive-lg">
         <thead>
           <tr>
