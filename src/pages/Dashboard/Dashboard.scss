@@ -1,0 +1,34 @@
+.dashboard-container {
+  .subtitle {
+    font-size: 21px;
+    line-height: 2.5rem;
+    color: #999999;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    p {
+      font-size: 1.2em;
+    }
+    button {
+      color: white;
+      background: #53bed2;
+      padding: 0.5rem 1rem;
+      border: none;
+      margin-right: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+      &.disabled {
+        cursor: not-allowed;
+        background: #999999;
+        color: black;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

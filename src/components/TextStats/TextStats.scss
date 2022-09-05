@@ -1,0 +1,42 @@
+.text-stats {
+  position: relative;
+  padding-left: 2rem;
+  min-width: 14.375rem;
+  &.line-border {
+    border-right: solid 2px #d1d5db;
+    @media (max-width: 832px) {
+      & {
+        display: block;
+        border: none;
+      }
+    }
+  }
+  .chart-img {
+    position: absolute;
+    top: 1rem;
+    left: 4.625rem;
+  }
+  .detail-container {
+    display: flex;
+    .data-text {
+      font-size: 1.5rem;
+    }
+    .detail {
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+      small {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      .icon {
+        fill: #21ba30;
+      }
+    }
+  }
+  .title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #4e5353;
+  }
+}

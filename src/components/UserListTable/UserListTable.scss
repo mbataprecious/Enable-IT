@@ -1,0 +1,35 @@
+.user-list-table-container {
+  background: white;
+  border-radius: 0.375rem;
+  padding: 0 1.25rem;
+  border: 1px solid #e5e8ed;
+  overflow: auto;
+  // white-space: nowrap;
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+
+    tr {
+      height: 4rem;
+      &.table-row {
+        border-bottom: 1px solid #e5e8ed;
+        td {
+          color: #816666;
+          &.profile-cell {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+          }
+        }
+      }
+      th {
+        text-align: left;
+        padding: 0 1rem;
+      }
+    }
+  }
+}
