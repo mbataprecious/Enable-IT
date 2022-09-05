@@ -1,7 +1,5 @@
 import LayoutComponent from "./components/LayoutComponent/LayoutComponent";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 //style
 import "./App.scss";
@@ -12,7 +10,6 @@ function App() {
       <LayoutComponent>
         <Dashboard />
       </LayoutComponent>
-      <ToastContainer />
     </div>
   );
 }

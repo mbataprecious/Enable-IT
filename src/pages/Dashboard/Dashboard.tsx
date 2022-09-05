@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import StatBoard from "../../components/StatBoard/StatBoard";
 import UserListTable from "../../components/UserListTable/UserListTable";
-import { toast } from "react-toastify";
 
 //types
 import { User } from "../../utils";
@@ -14,17 +13,35 @@ const Dashboard = () => {
   const [userList, setUserList] = useState<User[]>([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
-      )
-      .then((res) => {
-        setUserList(res.data.users.slice(0, 10));
-      })
-      .catch((err) => {
-        if (err.response) {
-          toast.error(err.message);
+    // axios
+    //   .get(
+    //     `https://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
+    //   )
+    //   .then((res) => {
+    //     setUserList(res.data.users.slice(0, 10));
+    //   })
+    //   .catch((err) => {
+    //     if (err.response) {
+    //       //toast.error(err.message);
+    //     }
+    //   });
+
+    fetch(
+      `https://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
+    )
+      .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+          return response.json();
+        } else {
+          console.error("server error");
         }
+      })
+      .then((jsonResponse) => {
+        setUserList(jsonResponse.users.slice(0, 10));
+      })
+      .catch((error) => {
+        // Handle the error
+        console.log(error);
       });
 
     return () => {};
