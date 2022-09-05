@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        `http://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
+        `https://give-me-users-forever.herokuapp.com/api/users/${pageNo}/next`
       )
       .then((res) => {
         setUserList(res.data.users.slice(0, 10));
