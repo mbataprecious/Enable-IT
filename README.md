@@ -24,4 +24,4 @@ Your app is ready to be deployed!
 
 ### Visit demo
 
-Check this link [here](https://facebook.github.io/create-react-app/docs/running-tests) to visit demo hosted in netlify.
+Check this link [here](https://enable-it-test.netlify.app/) to visit demo hosted in netlify.
